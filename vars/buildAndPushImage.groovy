@@ -6,7 +6,7 @@ import org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper
  * @param repoName an docker repo name
  * @param projectName an application name
  */
-def call(RunWrapper currentBuild, Srting repoName, String projectName) {
+def call(RunWrapper currentBuild, String repoName, String projectName) {
 
     def currentResult = currentBuild.currentResult
     def previousResult = currentBuild.getPreviousBuild()?.getResult()
