@@ -21,6 +21,6 @@ def call(RunWrapper currentBuild, String repoName, String projectName, String re
     def badResult =
         currentResult in [Result.UNSTABLE.toString(), Result.FAILURE.toString()]
     if (buildIsFixed || badResult) {
-    	sh "helm upgrade --install ${projectName} ./${projectName} --set image.repository=${repoName}/${projectName} --set image.tag=${releaseVersion}-${env.BUILD_NUMBER} -n ${targetNamespace}"
+    	sh "/usr/local/bin/helm upgrade --install ${projectName} ./${projectName} --set image.repository=${repoName}/${projectName} --set image.tag=${releaseVersion}-${env.BUILD_NUMBER} -n ${targetNamespace}"
     }
 }
